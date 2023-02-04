@@ -10,6 +10,9 @@ module.exports = {
   reporters: [
     'default',
     ['jest-junit', { outputDirectory: 'reports/jest-junit' }],
-    ['./node_modules/jest-html-reporter', { outputPath: 'reports/jest-html-reporter/index.html' }],
+    [
+      './node_modules/jest-html-reporter',
+      { outputPath: 'reports/jest-html-reporter/index.html' },
+    ],
   ],
 };
