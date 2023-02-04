@@ -1,5 +1,5 @@
 {
-  "name": "working-time-reporter-on-github-issues",
+  "name": "template-typescript",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -13,13 +13,13 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/HiromiShikata/working-time-reporter-on-github-issues.git"
+    "url": "git+https://github.com/HiromiShikata/template-typescript.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/HiromiShikata/working-time-reporter-on-github-issues/issues"
+    "url": "https://github.com/HiromiShikata/template-typescript/issues"
   },
   "release": {
     "plugins": [
@@ -32,7 +32,7 @@
       "main"
     ]
   },
-  "homepage": "https://github.com/HiromiShikata/working-time-reporter-on-github-issues#readme",
+  "homepage": "https://github.com/HiromiShikata/template-typescript#readme",
   "devDependencies": {
     "@semantic-release/changelog": "^6.0.2",
     "@semantic-release/git": "^10.0.1",
