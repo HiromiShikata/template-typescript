@@ -9,7 +9,7 @@
     "lint-fix": "eslint src --fix",
     "format": "npm run prettier && npm run lint-fix",
     "build": "tsc",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest"
   },
   "repository": {
     "type": "git",
