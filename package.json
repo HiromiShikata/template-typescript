@@ -21,6 +21,17 @@
   "bugs": {
     "url": "https://github.com/HiromiShikata/working-time-reporter-on-github-issues/issues"
   },
+  "release": {
+    "plugins": [
+      "@semantic-release/commit-analyzer",
+      "@semantic-release/release-notes-generator",
+      "@semantic-release/changelog",
+      "@semantic-release/git"
+    ],
+    "branches": [
+      "main"
+    ]
+  },
   "homepage": "https://github.com/HiromiShikata/working-time-reporter-on-github-issues#readme",
   "devDependencies": {
     "@types/jest": "^29.2.6",
