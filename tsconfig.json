@@ -7,8 +7,7 @@
     "strict": true,
     "skipLibCheck": true,
     "outDir": "./dist",
-    "noFallthroughCasesInSwitch": true,
-
+    "noFallthroughCasesInSwitch": true
   },
   "include": ["src"],
   "exclude": ["node_modules", "**/__tests__/*"]
