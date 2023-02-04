@@ -4,8 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "prettier": "prettier --write '**/*'",
     "lint": "eslint src",
     "lint-fix": "eslint src --fix",
+    "format": "npm run prettier && npm run lint-fix",
     "build": "tsc",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
