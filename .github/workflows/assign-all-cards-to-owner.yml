@@ -14,3 +14,4 @@ jobs:
         uses: pozil/auto-assign-issue@v1
         with:
           assignees: HiromiShikata
+          repo-token: ${{ secrets.GH_TOKEN }}
