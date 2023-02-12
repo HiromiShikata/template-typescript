@@ -9,7 +9,7 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v3
       - name: Create pull request
-        uses: devops-infra/action-pull-request@v0.5.3
+        uses: devops-infra/action-pull-request@v0.5.5
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           reviewer: HiromiShikata
