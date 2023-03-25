@@ -7,3 +7,7 @@
 .idea
 reports
 dist
+bin
+.npmignore
+*.map
+CHANGELOG.md
