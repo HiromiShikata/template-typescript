@@ -19,3 +19,12 @@
 1. Grant write permission to gh-actions
 
    https://github.com/HiromiShikata/template-typescript/settings/actions
+
+1. Set secrets (optional)
+
+   https://github.com/HiromiShikata/template-typescript/settings/secrets/actions
+
+   - GH_TOKEN
+   - NPM_TOKEN
+
+1. Remove `How to use this template` section from README.md
