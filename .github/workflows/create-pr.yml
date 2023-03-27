@@ -20,8 +20,9 @@ jobs:
           target_branch: main
           draft: ${{ steps.commitlint.outputs.results.length > 0 }}
         id: create-pr
-      
+
       - run: gh pr merge --rebase --auto "${{ steps.create-pr.outputs.pr_number }}"
         env:
           GH_TOKEN: ${{ github.token }}
+        continue-on-error: true
 
