@@ -10,13 +10,18 @@ jobs:
         uses: actions/checkout@v3
         with:
           fetch-depth: 0
+      - uses: wagoid/commitlint-github-action@v5
+        id: commitlint
+
       - name: Create pull request
         uses: devops-infra/action-pull-request@v0.5.5
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           target_branch: main
-          draft: true
+          draft: ${{ steps.commitlint.outputs.results.length > 0 }}
         id: create-pr
-      - run: gh pr merge --merge --auto "${{ steps.create-pr.outputs.pr_number }}"
+      
+      - run: gh pr merge --rebase --auto "${{ steps.create-pr.outputs.pr_number }}"
         env:
           GH_TOKEN: ${{ github.token }}
+
