@@ -24,7 +24,7 @@
 
    https://github.com/HiromiShikata/template-typescript/settings/secrets/actions
 
-   - GH_TOKEN
-   - NPM_TOKEN
+   - [GH_TOKEN](https://github.com/settings/tokens)
+   - [NPM_TOKEN](https://www.npmjs.com/settings/hiromi/tokens)
 
 1. Remove `How to use this template` section from README.md
