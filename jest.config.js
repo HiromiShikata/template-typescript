@@ -15,4 +15,5 @@ module.exports = {
       { outputPath: 'reports/jest-html-reporter/index.html' },
     ],
   ],
+  testPathIgnorePatterns: ['/node_modules/', '/bin/', '/dist/'],
 };
