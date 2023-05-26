@@ -11,3 +11,5 @@ bin
 .npmignore
 *.map
 CHANGELOG.md
+.env
+.env.example
