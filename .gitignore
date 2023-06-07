@@ -177,3 +177,4 @@ dist
 reports
 *.orig
 *.rej
+*.diff
