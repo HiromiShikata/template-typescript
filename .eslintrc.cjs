@@ -11,7 +11,12 @@ module.exports = {
     project: ['tsconfig.json'],
     sourceType: 'module',
   },
-  plugins: ['@typescript-eslint', 'no-type-assertion', 'import'],
+  plugins: [
+    '@typescript-eslint',
+    'no-type-assertion',
+    'import',
+    'unused-imports',
+  ],
   root: true,
   rules: {
     '@typescript-eslint/require-await': 'off',
@@ -42,5 +47,6 @@ module.exports = {
         ],
       },
     ],
+    'unused-imports/no-unused-imports-ts': 'error',
   },
 };
