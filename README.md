@@ -9,7 +9,7 @@
 1. Replace template-typescript to repository name
 
    ```
-   find -type f | xargs sed -i 's/template-typescript/your-repository-name/g' && git add -A && git commit -m'chore: replace template name to repository name'
+   npx replace-all-words ./ template-typescript your-repostiroy-name
    ```
 
 1. Setup Circleci
