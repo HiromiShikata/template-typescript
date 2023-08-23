@@ -4,10 +4,13 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "prebuild": "npm run doctor",
+    "doctor:node-version": "check-node-version --node 20 --npx 9 --npm 9",
+    "doctor": "npm run doctor:node-version",
     "prettier": "prettier --write '**/*'",
     "lint": "eslint src",
     "lint-fix": "eslint src --fix",
-    "format": "npm run prettier && npm run lint-fix",
+    "fmt": "npm run prettier && npm run lint-fix",
     "build": "tsc -p ./tsconfig.build.json",
     "test": "jest"
   },
@@ -40,6 +43,8 @@
     "@types/jest": "^29.5.2",
     "@typescript-eslint/eslint-plugin": "^5.61.0",
     "@typescript-eslint/parser": "^5.61.0",
+    "check-node-version": "^4.2.1",
+    "commitlint": "^17.7.1",
     "conventional-changelog-conventionalcommits": "^6.1.0",
     "eslint": "^8.44.0",
     "eslint-plugin-import": "^2.27.5",
