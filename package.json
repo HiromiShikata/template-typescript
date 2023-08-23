@@ -4,6 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "prebuild": "npm run doctor",
+    "doctor:node-version": "check-node-version --node 20 --npx 9 --npm 9",
+    "doctor": "npm run doctor:node-version",
     "prettier": "prettier --write '**/*'",
     "lint": "eslint src",
     "lint-fix": "eslint src --fix",
