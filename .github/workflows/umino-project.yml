@@ -39,4 +39,3 @@ jobs:
           project_id: ${{ env.project_id }}
           resource_node_id: ${{ github.event.pull_request.node_id || github.event.issue.node_id }}
           status_value: ${{ env.inbox }}
-
