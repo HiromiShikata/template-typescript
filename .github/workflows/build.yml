@@ -9,7 +9,7 @@ jobs:
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
         with:
           fetch-depth: 0
 
@@ -46,15 +46,13 @@ jobs:
           name: reports
           path: reports
 
-  check-dontmerge:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
-
       - name: Search for DONTMERGE comments
         run: |
-          if grep -r 'DONTMERGE' --exclude-dir=.github --exclude-dir=.git --exclude=README.md; then
+          if grep -r 'DONTMERGE' \
+            --exclude-dir=.github \
+            --exclude-dir=.git \
+            --exclude=README.md \
+            ; then
             echo "DONTMERGE keyword detected!"
             exit 1
           fi
