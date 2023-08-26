@@ -31,7 +31,7 @@ jobs:
         uses: octokit/request-action@v2.x
         with:
           route: POST /repos/${{ github.repository }}/issues/${{ steps.create_pr.outputs.pr_number }}/assignees
-          assignees: ${{ github.actor }}
+          assignees: HiromiShikata # ${{ github.actor }}
           token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Get PR Node ID
