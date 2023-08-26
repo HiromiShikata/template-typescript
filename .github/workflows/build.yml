@@ -48,11 +48,11 @@ jobs:
 
       - name: Search for DONTMERGE comments
         run: |
-          if grep -r 'DONTMERGE' \
-            --exclude-dir=.github \
-            --exclude-dir=.git \
-            --exclude=README.md \
-            ; then
-            echo "DONTMERGE keyword detected!"
-            exit 1
+          if find . -type f \
+            ! -path './.github/*' \
+            ! -path './.git/*' \
+            ! -path './README.md' \
+            -exec grep -l 'DONTMERGE' {} +; then
+              echo "DONTMERGE keyword detected!"
+              exit 1
           fi
