@@ -42,7 +42,6 @@ jobs:
           project_id: ${{ env.project_id }}
           resource_node_id: ${{ github.event.pull_request.node_id || github.event.issue.node_id }}
           status_value: ${{ env.inbox }}
-      
       - name: Comment #offline
         if: github.event_name == 'issues' && github.event.action == 'labeled' && github.event.label.name == 'hiromishikata:task:offline'
         uses: actions/github-script@v3
