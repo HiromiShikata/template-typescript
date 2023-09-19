@@ -46,7 +46,7 @@ jobs:
         if: steps.create_pr.outputs.pr_number
         run: |
           RESPONSE=$(curl -s -X POST \
-            -H "Authorization: bearer ${{ secrets.GITHUB_TOKEN }}" \
+            -H "Authorization: bearer ${{ secrets.GH_TOKEN }}" \
             -H "Content-Type: application/json" \
             -d '{
               "query": "mutation($id: ID!) { enablePullRequestAutoMerge(input: { pullRequestId: $id }) { clientMutationId } }",
