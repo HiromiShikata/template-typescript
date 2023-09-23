@@ -38,7 +38,7 @@
   "homepage": "https://github.com/HiromiShikata/template-typescript#readme",
   "devDependencies": {
     "@semantic-release/changelog": "^6.0.3",
-    "@semantic-release/commit-analyzer": "^10.0.1",
+    "@semantic-release/commit-analyzer": "^11.0.0",
     "@semantic-release/git": "^10.0.1",
     "@types/jest": "^29.5.2",
     "@typescript-eslint/eslint-plugin": "^5.61.0",
