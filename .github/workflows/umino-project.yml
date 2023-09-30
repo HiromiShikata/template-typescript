@@ -35,7 +35,7 @@ jobs:
       (github.event.action == 'labeled' && github.event.label.name == 'hiromishikata:task:offline'))
     steps:
       - name: Move issue to ${{ env.inbox }}
-        uses: leonsteinhaeuser/project-beta-automations@v2.1.0
+        uses: leonsteinhaeuser/project-beta-automations@v2.2.1
         with:
           gh_token: ${{ env.gh_project_token }}
           user: ${{ env.user }}
