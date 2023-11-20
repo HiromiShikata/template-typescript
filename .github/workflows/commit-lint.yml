@@ -6,12 +6,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
         with:
           fetch-depth: 0
 
       - name: Use Node.js
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
 
       - name: Install commitlint
         run: |
@@ -19,4 +19,22 @@ jobs:
 
       - name: Lint commits
         run: |
-          npx commitlint --from=HEAD~1 --to=HEAD
+          npx commitlint --from=HEAD~1 --to=HEAD --config ./.github/workflows/configs/commitlint.config.js
+
+  check-dontmerge:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Check for DONTMERGE
+        run: |
+          result=$(find . \
+            -type f \
+            ! -path './.github/workflows/commit-lint.yml' \
+            ! -name '*.snap' \
+            -exec grep -Hn 'DONTMERGE' {} \;)
+          if [[ ! -z "$result" ]]; then
+            echo "$result"
+            exit 1
+          fi
