@@ -1,6 +1,7 @@
 name: Empty format test
 
-on: push
+on:
+  push
 
 jobs:
   format:
@@ -11,3 +12,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: echo "test"
+
