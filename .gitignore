@@ -178,3 +178,4 @@ reports
 *.orig
 *.rej
 *.diff
+tmp
