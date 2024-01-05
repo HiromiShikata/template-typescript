@@ -1,10 +1,10 @@
-name: Build
+name: Test
 
 on:
   push:
 
 jobs:
-  build-lint-test:
+  test:
     runs-on: ubuntu-latest
 
     steps:
