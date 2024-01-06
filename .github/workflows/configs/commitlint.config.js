@@ -16,7 +16,8 @@ module.exports = {
         'style',
         'test',
         'autogen',
-      ],
+        'prep',
+      ]
     ],
-  },
+  }
 };
