@@ -17,15 +17,8 @@ jobs:
       - run: git pull
 
       - name: Run replace-all-words
-        run: npx replace-all-words ./ template-typescript ${{ github.repository }}
+        run: npx replace-all-words ./ template-typescript ${{ github.repository }} && rm .github/workflows/initialize.yml
         if: github.repository != 'template-typescript'
       - uses: stefanzweifel/git-auto-commit-action@v4
         with:
-          commit_message: 'autogen: re-format / npm run fmt'
-
-      - name: Delete workflow for initialize
-        if: github.repository != 'template-typescript'
-        run: rm .github/workflows/initialize.yml
-      - uses: stefanzweifel/git-auto-commit-action@v4
-        with:
-          commit_message: 'autogen: re-format / npm run fmt'
+          commit_message: 'autogen: replace template with repository name and remove initialize / npx replace-all-words ./ template-typescript ${{ github.repository }} && rm .github/workflows/initialize.yml'
