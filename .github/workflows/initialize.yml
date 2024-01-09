@@ -19,7 +19,7 @@ jobs:
       - uses: stefanzweifel/git-auto-commit-action@v4
         with:
           commit_message: 'autogen: re-format / npm run fmt'
-          
+
       - name: Run replace-all-words
         run: npx replace-all-words ./ template-typescript ${{ github.repository }}
         if: github.repository != 'template-typescript'
