@@ -1,0 +1,32 @@
+name: Initialize
+
+on: push
+
+jobs:
+  replace-words:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GH_TOKEN }}
+      - run: git pull
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 21
+
+      - name: Run replace-all-words
+        run: npx replace-all-words ./ template-typescript ${{ github.repository }}
+        if: github.repository != 'template-typescript'
+      - uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: "autogen: replace with repository name / npx replace-all-words ./ template-typescript ${{ github.repository }}"
+
+      - name: Delete workflow for initialize
+        if: github.repository != 'template-typescript'
+        run: rm .github/workflows/initialize.yml
+      - uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: "autogen: remove initialize job / rm .github/workflows/initialize.yml"
+        
