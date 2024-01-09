@@ -16,20 +16,17 @@ jobs:
           node-version: 21
       - run: git pull
 
-      - uses: stefanzweifel/git-auto-commit-action@v4
-        with:
-          commit_message: 'autogen: re-format / npm run fmt'
 
       - name: Run replace-all-words
         run: npx replace-all-words ./ template-typescript ${{ github.repository }}
         if: github.repository != 'template-typescript'
-      - uses: stefanzweifel/git-auto-commit-action@v5
+      - uses: stefanzweifel/git-auto-commit-action@v4
         with:
-          commit_message: 'autogen: replace with repository name / npx replace-all-words ./ template-typescript ${{ github.repository }}'
+          commit_message: 'autogen: re-format / npm run fmt'
 
       - name: Delete workflow for initialize
         if: github.repository != 'template-typescript'
         run: rm .github/workflows/initialize.yml
-      - uses: stefanzweifel/git-auto-commit-action@v5
+      - uses: stefanzweifel/git-auto-commit-action@v4
         with:
-          commit_message: 'autogen: remove initialize job / rm .github/workflows/initialize.yml'
+          commit_message: 'autogen: re-format / npm run fmt'
