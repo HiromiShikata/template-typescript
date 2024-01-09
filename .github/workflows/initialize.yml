@@ -16,7 +16,6 @@ jobs:
           node-version: 21
       - run: git pull
 
-
       - name: Run replace-all-words
         run: npx replace-all-words ./ template-typescript ${{ github.repository }}
         if: github.repository != 'template-typescript'
