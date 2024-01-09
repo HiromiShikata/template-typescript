@@ -5,12 +5,6 @@
 
 ## How to use this template
 
-1. Replace template-typescript to repository name
-
-   ```
-   npx replace-all-words ./ template-typescript your-repostiroy-name
-   ```
-
 1. Grant write permission to gh-actions
 
    https://github.com/HiromiShikata/template-typescript/settings/actions
