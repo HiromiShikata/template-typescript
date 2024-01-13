@@ -29,6 +29,3 @@ jobs:
       - uses: stefanzweifel/git-auto-commit-action@v4
         with:
           commit_message: 'autogen: remove job for initialize / rm .github/workflows/initialize.yml'
-
-
-
