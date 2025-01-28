@@ -1,6 +1,9 @@
 name: Initialize
 
-on: push
+on: 
+  push:
+    branches:
+      - main
 
 jobs:
   initialize:
@@ -31,6 +34,7 @@ jobs:
           commit_message: 'autogen: remove job for initialize / rm .github/workflows/initialize.yml'
 
       - name: Trigger repository-management
+        if: ${{ !contains(github.event.repository.name, 'template') }}
         run: |
           curl -X POST -f -H "Authorization: token ${{ secrets.GH_TOKEN }}" \
                -H "Accept: application/vnd.github.v3+json" \
