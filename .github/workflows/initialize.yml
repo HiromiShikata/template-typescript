@@ -1,6 +1,6 @@
 name: Initialize
 
-on: 
+on:
   push:
     branches:
       - main
