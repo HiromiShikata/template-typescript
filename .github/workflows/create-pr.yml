@@ -1,3 +1,8 @@
+# DO NOT EDIT DIRECTLY.
+# This file is auto-synchronized from HiromiShikata/repositories-management.
+# Direct edits in downstream repositories will be overwritten by the next sync.
+# Update the source file in HiromiShikata/repositories-management instead.
+
 name: Create PR
 
 on:
@@ -17,7 +22,7 @@ jobs:
         id: app-token
         uses: actions/create-github-app-token@v3
         with:
-          app-id: ${{ secrets.HS_BOT_GH_AP_APP_ID }}
+          client-id: ${{ secrets.HS_BOT_GH_AP_CLIENT_ID }}
           private-key: ${{ secrets.HS_BOT_GH_AP_PRIVATE_KEY }}
 
       - name: Checkout repository
@@ -38,7 +43,7 @@ jobs:
       - name: Create Pull Request
         id: create_pr
         if: steps.check_pr.outputs.existing_pr == ''
-        uses: repo-sync/pull-request@v2
+        uses: repo-sync/pull-request@7e79a9f5dc3ad0ce53138f01df2fad14a04831c5
         with:
           github_token: ${{ steps.app-token.outputs.token }}
           destination_branch: 'main'
