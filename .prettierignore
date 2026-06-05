@@ -10,6 +10,7 @@ dist
 bin
 .npmignore
 .npmrc
+.gitleaks.toml
 *.map
 CHANGELOG.md
 .env
