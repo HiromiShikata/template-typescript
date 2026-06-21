@@ -2,14 +2,16 @@
   "compilerOptions": {
     "target": "es2020",
     "module": "commonjs",
-    "moduleResolution": "Node",
+    "moduleResolution": "Bundler",
     "esModuleInterop": true,
+    "rootDir": "src",
     "outDir": "./dist",
     "sourceMap": true,
     "strict": true,
     "forceConsistentCasingInFileNames": true,
     "skipLibCheck": true,
-    "noFallthroughCasesInSwitch": true
+    "noFallthroughCasesInSwitch": true,
+    "types": ["jest", "node"]
   },
   "include": ["src"],
   "exclude": ["node_modules", "**/__tests__/*"]
