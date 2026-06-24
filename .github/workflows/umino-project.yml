@@ -277,8 +277,7 @@ jobs:
     name: Check linked issues in pull requests
     if: >-
       (github.event_name == 'pull_request') &&
-      github.actor != 'dependabot[bot]' &&
-      !startsWith(github.head_ref, 'dependabot/')
+      github.actor != 'dependabot[bot]'
     steps:
       - uses: step-security/harden-runner@v2
         with:
