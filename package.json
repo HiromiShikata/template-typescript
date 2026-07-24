@@ -50,13 +50,15 @@
     "eslint": "^10.4.0",
     "eslint-plugin-import-x": "^4.16.2",
     "eslint-plugin-unused-imports": "^4.4.1",
+    "@swc/core": "^1.0.0",
+    "@swc/jest": "^0.2.0",
+    "@typescript/native": "npm:typescript@^7.0.2",
     "jest": "^30.0.0",
     "jest-html-reporter": "^4.0.0",
     "jest-junit": "^17.0.0",
     "prettier": "^3.0.0",
     "semantic-release": "^25.0.0",
-    "ts-jest": "^29.1.1",
-    "typescript": "^6.0.3"
+    "typescript": "npm:@typescript/typescript6@^6.0.2"
   },
   "dependencies": {
     "dotenv": "^17.4.2"
