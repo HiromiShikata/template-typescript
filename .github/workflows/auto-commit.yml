@@ -2,6 +2,10 @@ name: Auto commit / format
 
 on: push
 
+concurrency:
+  group: auto-commit-${{ github.head_ref || github.ref_name }}
+  cancel-in-progress: ${{ github.ref != 'refs/heads/main' }}
+
 jobs:
   format:
     runs-on: ubuntu-latest
