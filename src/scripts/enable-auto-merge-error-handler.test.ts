@@ -53,6 +53,22 @@ describe('enable-auto-merge-error-handler.sh', () => {
     expect(result.stdout).toContain('Warning: could not enable auto merge');
   });
 
+  test('exits 0 with warning when error message contains required protected branch restriction', () => {
+    const result = runScript(
+      JSON.stringify({
+        errors: [
+          {
+            message:
+              'Pull request cannot be merged because required protected branch rules are not satisfied',
+            type: 'UNPROCESSABLE',
+          },
+        ],
+      }),
+    );
+    expect(result.status).toBe(0);
+    expect(result.stdout).toContain('Warning: could not enable auto merge');
+  });
+
   test('exits 1 when error is not a known transient condition', () => {
     const result = runScript(
       JSON.stringify({
