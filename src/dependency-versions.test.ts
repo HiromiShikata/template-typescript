@@ -47,3 +47,15 @@ describe('handlebars dependency version', () => {
     );
   });
 });
+
+describe('undici dependency version', () => {
+  test('undici is updated to >= 7.29.1 fixing GHSA-w293-vg96-wgc3', () => {
+    const installedUndiciVersion = readInstalledPackageVersion(
+      'undici/package.json',
+    );
+
+    expect(isAtLeastMinimumVersion(installedUndiciVersion, 7, 29, 1)).toBe(
+      true,
+    );
+  });
+});

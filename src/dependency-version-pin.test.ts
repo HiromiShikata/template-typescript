@@ -18,6 +18,7 @@ const dependencyMinimumVersions: MinimumVersionExpectation[] = [
   { packageName: 'jest', minimumVersion: '30.5.2' },
   { packageName: 'prettier', minimumVersion: '3.9.9' },
   { packageName: 'dotenv', minimumVersion: '18.0.5' },
+  { packageName: 'ip-address', minimumVersion: '10.3.1' },
 ];
 
 function isRecordOfUnknown(value: unknown): value is Record<string, unknown> {
