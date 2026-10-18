@@ -7,17 +7,17 @@ type MinimumVersionExpectation = {
 };
 
 const dependencyMinimumVersions: MinimumVersionExpectation[] = [
-  { packageName: '@swc/core', minimumVersion: '1.16.13' },
+  { packageName: '@swc/core', minimumVersion: '1.16.18' },
   {
     packageName: '@typescript-eslint/eslint-plugin',
-    minimumVersion: '8.71.0',
+    minimumVersion: '8.71.1',
   },
-  { packageName: '@typescript-eslint/parser', minimumVersion: '8.71.0' },
+  { packageName: '@typescript-eslint/parser', minimumVersion: '8.71.1' },
   { packageName: 'commitlint', minimumVersion: '21.2.3' },
   { packageName: 'eslint', minimumVersion: '10.12.0' },
   { packageName: 'jest', minimumVersion: '30.5.2' },
-  { packageName: 'prettier', minimumVersion: '3.9.9' },
-  { packageName: 'dotenv', minimumVersion: '18.0.5' },
+  { packageName: 'prettier', minimumVersion: '3.9.10' },
+  { packageName: 'dotenv', minimumVersion: '18.0.7' },
   { packageName: 'ip-address', minimumVersion: '10.3.1' },
 ];
 
