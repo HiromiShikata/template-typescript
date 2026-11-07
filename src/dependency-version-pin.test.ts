@@ -6,6 +6,11 @@ type MinimumVersionExpectation = {
   minimumVersion: string;
 };
 
+type LockfileEntryExpectation = {
+  lockfilePath: string;
+  minimumVersion: string;
+};
+
 const dependencyMinimumVersions: MinimumVersionExpectation[] = [
   { packageName: '@swc/core', minimumVersion: '1.16.18' },
   {
@@ -37,7 +42,7 @@ function isInstalledPackageEntryKey(key: string, packageName: string): boolean {
   return installedPackageName === packageName;
 }
 
-function readInstalledPackageVersions(packageName: string): string[] {
+function readLockfilePackages(): Record<string, unknown> {
   const packageLockPath = path.join(__dirname, '../package-lock.json');
   const rawPackageLock = fs.readFileSync(packageLockPath, 'utf8');
   const parsedPackageLock: unknown = JSON.parse(rawPackageLock);
@@ -48,6 +53,26 @@ function readInstalledPackageVersions(packageName: string): string[] {
   if (!isRecordOfUnknown(packages)) {
     throw new Error('package-lock.json is missing a "packages" object');
   }
+  return packages;
+}
+
+function readLockfileEntryVersion(lockfilePath: string): string {
+  const packages = readLockfilePackages();
+  const entry = packages[lockfilePath];
+  if (!isRecordOfUnknown(entry)) {
+    throw new Error(`package-lock.json has no entry at key "${lockfilePath}"`);
+  }
+  const version = entry.version;
+  if (typeof version !== 'string') {
+    throw new Error(
+      `package-lock.json entry "${lockfilePath}" has no string version`,
+    );
+  }
+  return version;
+}
+
+function readInstalledPackageVersions(packageName: string): string[] {
+  const packages = readLockfilePackages();
   const installedVersions: string[] = [];
   for (const key of Object.keys(packages)) {
     if (!isInstalledPackageEntryKey(key, packageName)) {
@@ -158,6 +183,24 @@ describe('dependency version pins after weekly bump', () => {
       for (const installedVersion of installedVersions) {
         expect(isVersionAtLeast(installedVersion, minimumVersion)).toBe(true);
       }
+    },
+  );
+});
+
+const lockfileEntryMinimumVersions: LockfileEntryExpectation[] = [
+  { lockfilePath: 'node_modules/undici', minimumVersion: '7.30.1' },
+  {
+    lockfilePath: 'node_modules/@actions/http-client/node_modules/undici',
+    minimumVersion: '6.29.1',
+  },
+];
+
+describe('undici lockfile entries pinned to patched versions', () => {
+  test.each(lockfileEntryMinimumVersions)(
+    '$lockfilePath is locked at version $minimumVersion or newer',
+    ({ lockfilePath, minimumVersion }) => {
+      const lockedVersion = readLockfileEntryVersion(lockfilePath);
+      expect(isVersionAtLeast(lockedVersion, minimumVersion)).toBe(true);
     },
   );
 });
