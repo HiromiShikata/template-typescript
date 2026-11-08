@@ -38,29 +38,29 @@
   "homepage": "https://github.com/HiromiShikata/template-typescript#readme",
   "devDependencies": {
     "@semantic-release/changelog": "^7.0.0",
-    "@semantic-release/commit-analyzer": "^13.0.0",
+    "@semantic-release/commit-analyzer": "^13.0.1",
     "@semantic-release/git": "^11.0.1",
     "@types/jest": "^30.0.0",
     "@typescript-eslint/eslint-plugin": "^8.60.0",
     "@typescript-eslint/parser": "^8.60.0",
     "check-node-version": "^4.2.1",
-    "commitlint": "^21.0.0",
-    "conventional-changelog-conventionalcommits": "^10.0.0",
+    "commitlint": "^21.2.4",
+    "conventional-changelog-conventionalcommits": "^10.4.1",
     "@eslint/js": "^10.0.1",
     "eslint": "^10.4.0",
-    "eslint-plugin-import-x": "^4.16.2",
+    "eslint-plugin-import-x": "^4.17.1",
     "eslint-plugin-unused-imports": "^4.4.1",
-    "@swc/core": "^1.0.0",
-    "@swc/jest": "^0.2.0",
+    "@swc/core": "^1.16.21",
+    "@swc/jest": "^0.2.39",
     "@typescript/native": "npm:typescript@^7.0.2",
-    "jest": "^30.0.0",
-    "jest-html-reporter": "^4.0.0",
+    "jest": "^30.5.2",
+    "jest-html-reporter": "^4.4.2",
     "jest-junit": "^17.0.0",
-    "prettier": "^3.0.0",
-    "semantic-release": "^25.0.0",
+    "prettier": "^3.9.10",
+    "semantic-release": "^25.0.9",
     "typescript": "npm:@typescript/typescript6@^6.0.2"
   },
   "dependencies": {
-    "dotenv": "18.0.7"
+    "dotenv": "18.0.9"
   }
 }
