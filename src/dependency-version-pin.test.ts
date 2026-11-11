@@ -193,6 +193,10 @@ const lockfileEntryMinimumVersions: LockfileEntryExpectation[] = [
     lockfilePath: 'node_modules/@actions/http-client/node_modules/undici',
     minimumVersion: '6.29.1',
   },
+  {
+    lockfilePath: 'node_modules/npm/node_modules/undici',
+    minimumVersion: '6.29.1',
+  },
 ];
 
 describe('undici lockfile entries pinned to patched versions', () => {
