@@ -11,28 +11,28 @@ jobs:
     permissions:
       contents: write
     steps:
-      - uses: step-security/harden-runner@v2
+      - uses: step-security/harden-runner@1d88384fd173af6ecb012dfd0264a306b711241a # v2.22.4
         with:
           egress-policy: audit
-      - uses: actions/checkout@v7
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           token: ${{ secrets.GH_TOKEN }}
-      - uses: actions/setup-node@v7
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
         with:
           node-version: 21
       - run: git pull
 
       - name: Run replace-all-words
-        run: npx replace-all-words ./ 'template-typescript' "${{ github.event.repository.name }}"
+        run: npx replace-all-words@1.1.15 ./ 'template-typescript' "${{ github.event.repository.name }}"
         if: ${{ github.event.repository.name }} != 'template-typescript'
-      - uses: stefanzweifel/git-auto-commit-action@v7
+      - uses: stefanzweifel/git-auto-commit-action@d0b01107b5db882071f96de5dd4b54961ea93f4c # v7.2.1
         with:
           commit_message: 'autogen: replace template with repository name and remove initialize / npx replace-all-words ./ template-typescript ${{ github.repository }}'
 
       - name: Remove job for initialize
         run: rm .github/workflows/initialize.yml
         if: ${{ !startsWith(github.event.repository.name, 'template-') }}
-      - uses: stefanzweifel/git-auto-commit-action@v7
+      - uses: stefanzweifel/git-auto-commit-action@d0b01107b5db882071f96de5dd4b54961ea93f4c # v7.2.1
         with:
           commit_message: 'autogen: remove job for initialize / rm .github/workflows/initialize.yml'
 
