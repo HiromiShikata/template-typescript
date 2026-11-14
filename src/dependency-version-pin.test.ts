@@ -208,3 +208,24 @@ describe('undici lockfile entries pinned to patched versions', () => {
     },
   );
 });
+
+const braceExpansionPatchedMinimumByMajor: Record<string, string> = {
+  '1': '1.1.20',
+  '2': '2.1.6',
+  '5': '5.0.11',
+};
+
+describe('brace-expansion patched versions per major line', () => {
+  test('every installed brace-expansion copy is at or above its major line patched minimum', () => {
+    const installedVersions = readInstalledPackageVersions('brace-expansion');
+    expect(installedVersions.length).toBeGreaterThan(0);
+    for (const installedVersion of installedVersions) {
+      const major = installedVersion.split('.')[0] ?? '';
+      const patchedMinimum = braceExpansionPatchedMinimumByMajor[major];
+      expect(patchedMinimum).toBeDefined();
+      expect(isVersionAtLeast(installedVersion, patchedMinimum ?? '')).toBe(
+        true,
+      );
+    }
+  });
+});
