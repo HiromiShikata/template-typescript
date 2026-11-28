@@ -7,6 +7,9 @@ concurrency:
   group: test-${{ github.head_ref || github.ref_name }}
   cancel-in-progress: ${{ github.ref != 'refs/heads/main' }}
 
+permissions:
+  contents: read
+
 jobs:
   test:
     runs-on: ubuntu-latest
